@@ -68,11 +68,12 @@ def cipher_algo(message,shift,chose):
 if __name__ == '__main__':
 
     while True:
-        text = input("Enter your message -> ").lower()
-        shift_value = int(input("Enter shift value -> "))
         # choise of user
         ch = input("Chose what you want \
             \n E. for encode \n D for decode\n Q for quit -->  ").upper()
-
+        if not ch == "Q":
+            text = input("Enter your message -> ").lower()
+            shift_value = int(input("Enter shift value -> "))
+        
         cipher_algo(text,shift_value,ch)
 
