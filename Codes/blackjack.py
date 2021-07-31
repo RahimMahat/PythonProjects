@@ -28,7 +28,7 @@ def calculate_score(cards_lst):
     # check if score is above 21 and if ace is in the card then replace it with 1
     elif 11 in cards_lst and sum(cards_lst) > 21:
         cards_lst.remove(11)
-        cards_lst.insert(1)
+        cards_lst.insert(0,1)
         
     return sum(cards_lst)
 
