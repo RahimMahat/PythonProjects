@@ -14,7 +14,7 @@ tim.hideturtle()
 def random_color():
     color_list = []
     lru_cache(maxsize=5)
-    for _ in range(30):
+    for hirst in range(30):
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
