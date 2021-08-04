@@ -48,4 +48,3 @@ turtle.onscreenclick(get_mouse_click_coor)
 turtle.mainloop()
 '''
 
-screen.exitonclick()
