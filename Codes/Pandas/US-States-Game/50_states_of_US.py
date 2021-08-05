@@ -19,10 +19,7 @@ while len(guessed_states) < 50:
                                                                                              "name? ").title()
     if answer_state == "Exit":
         # states that missed by the user
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+        missing_states = [state for state in all_states if state not in guessed_states]
         new_data = pd.DataFrame(missing_states)
         new_data.to_csv("missed_states.csv")
         break
