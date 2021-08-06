@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+from tkinter import *
+from tkinter import messagebox
+from random import sample
+import pyperclip
+
+# TODO: PASSWORD GENERATOR
+
+
+def password_generator():
+    Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower = "abcdefghijklmnopqrstuvwxyz"
+    digits = "1234567890"
+    symbol = "~!@#$%^&*()_+:;<>?`[]"
+    all = Upper + lower + digits + symbol
+    length = 17
+
+    password = "".join(sample(all, length))
+    password_entry.insert(0, password)
+    pyperclip.copy(password)
+
+
+# TODO: SAVE PASSWORD
+def save():
+    username = email_entry.get()
+    website = website_entry.get()
+    password = password_entry.get()
+
+    if len(website) == 0 or len(password) == 0:
+        messagebox.showinfo(
+            title="Oops", message="Make sure you haven't left any fields empty")
+    else:
+        is_ok = messagebox.askokcancel(
+            title=website, message=f"These are the details entered: \nEmail: {username}\nPassword: {password}\nIs it ok to save?")
+
+        if is_ok:
+            with open("data.txt", "a") as data:
+                data.write(f"{website} | {username} | {password} \n")
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
+
+
+# TODO: UI SETUP
+window = Tk()
+window.title("Password Manager")
+window.config(padx=50, pady=50)
+# creating canvas
+canvas = Canvas(width=225, height=225)
+# loading up image
+# image size = 225x225
+key_lock_img = PhotoImage(file="lock_logo.png")
+# creating image inside canvas
+canvas.create_image(125, 110, image=key_lock_img)
+canvas.grid(column=1, row=0)
+
+# All labels
+website_label = Label(text="Website:")
+website_label.grid(row=1, column=0)
+email_label = Label(text="Email/Username:")
+email_label.grid(row=2, column=0)
+password_label = Label(text="Password:")
+password_label.grid(row=3, column=0)
+
+# All Entries
+website_entry = Entry(width=35)
+website_entry.grid(row=1, column=1, columnspan=2)
+# it'll automatically load the app with cursor on website entry
+website_entry.focus()
+email_entry = Entry(width=35)
+# it'll populate the email entry with preloaded string
+email_entry.insert(0, "example@example.com")
+email_entry.grid(row=2, column=1, columnspan=2)
+password_entry = Entry(width=20)
+password_entry.grid(row=3, column=1)
+
+# All Buttons
+generate_password_button = Button(
+    text="Generate Password", command=password_generator)
+generate_password_button.grid(row=3, column=2)
+add_button = Button(text="Add", width=36, command=save)
+add_button.grid(row=4, column=1, columnspan=2)
+
+
+window.mainloop()
