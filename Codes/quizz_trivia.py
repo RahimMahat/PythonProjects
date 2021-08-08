@@ -40,7 +40,7 @@ def play():
         Question = html.unescape(question_bank[i]["Question"])
         Answer = question_bank[i]["Answer"]
         print(f"Q {i+1}. {Question}\n\n")
-        print(Answer)
+        # print(Answer)
         ans = input("Enter your answer(True/False): ")
         if ans == Answer:
             print("\nThat is the correct answer", end="\t\t\t\t")
