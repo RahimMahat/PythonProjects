@@ -13,9 +13,8 @@ MY_PASWD = "your@password"
 link_for_iss_notify = "http://open-notify.org/Open-Notify-API/ISS-Location-Now/"
 api_url = "http://api.open-notify.org/iss-now.json"
 
+
 # TODO: Check the iss is near to your location
-
-
 def is_iss_overhead():
     response = requests.get(url=api_url)
     response.raise_for_status()
@@ -36,7 +35,7 @@ def is_dark():
         "lng": MY_LNG,
         "formatted": 0
     }
-
+    # getting sunset and sunrise time from an api
     response = requests.get(
         "https://api.sunrise-sunset.org/json", params=parameters)
     response.raise_for_status()
