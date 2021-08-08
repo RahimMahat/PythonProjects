@@ -15,7 +15,7 @@ api_url = "http://api.open-notify.org/iss-now.json"
 
 
 # TODO: Check the iss is near to your location
-def is_iss_overhead():
+def is_iss_overhead() -> bool:
     response = requests.get(url=api_url)
     response.raise_for_status()
     data = response.json()
@@ -29,7 +29,7 @@ def is_iss_overhead():
 
 
 # TODO: Check if it's the night time so we can spot the iss
-def is_dark():
+def is_dark() -> bool:
     parameters = {
         "lat": MY_LAT,
         "lng": MY_LNG,
