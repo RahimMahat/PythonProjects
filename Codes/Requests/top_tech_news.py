@@ -30,6 +30,6 @@ largest_num = max(article_upvotes)
 largest_index = article_upvotes.index(largest_num)
 
 print(f"The most voted article on the hacker news right now with {largest_num} upvotes is:\n\
-    The article heading --> {article_texts[largest_index]}\t\t |\t \n\
+    The article heading --> {article_texts[largest_index]}\n\
     See full article here --> {article_links[largest_index]}\n ")
     
