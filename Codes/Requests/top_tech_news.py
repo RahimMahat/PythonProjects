@@ -11,7 +11,7 @@ yc_webpage = response.text
 
 soup = BeautifulSoup(yc_webpage, "html.parser")
 
-articles = soup.find_all(name="a", class_="storylink")
+articles = soup.find_all(name="a", class_="titlelink")
 article_texts = []
 article_links = []
 for article_tag in articles:
