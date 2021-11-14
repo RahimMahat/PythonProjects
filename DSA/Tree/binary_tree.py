@@ -62,8 +62,8 @@ def search_value(root, value):
     # time complexity: bigO(n), aux space: bigO(h)
 
 def tree_height(root):
-    if root == None:
-        return 0
+    if root is None:
+        return -1
     else:
         lh = tree_height(root.left)
         rh = tree_height(root.right)
