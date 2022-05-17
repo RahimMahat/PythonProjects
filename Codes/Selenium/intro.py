@@ -39,5 +39,5 @@ for n in range(len(event_times)):
     }
 print(events)
 
-
+# finally quit the driver
 driver.quit()
